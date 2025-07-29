@@ -9,7 +9,7 @@ import tempfile
 
 @st.cache_resource
 def load_app_and_swapper():
-    swapper = insightface.model_zoo.get_model('inswapper_128.onnx', download=True)
+    swapper = get_model('inswapper_128.onnx', download=True)
     app = FaceAnalysis(name="buffalo_l", providers=['CPUExecutionProvider'])
     app.prepare(ctx_id=0, det_size=(640, 640))
     return app, swapper
